@@ -1,21 +1,24 @@
-#OGN
+# OGN
 
-Source code accompanying the paper "Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs" by M. Tatarchenko, A. Dosovitskiy and T. Brox https://lmb.informatik.uni-freiburg.de/people/tatarchm/ogn/.
+Source code accompanying the paper ["Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs"](https://lmb.informatik.uni-freiburg.de/people/tatarchm/ogn/) by M. Tatarchenko, A. Dosovitskiy and T. Brox. The implementation is based on [Caffe](http://caffe.berkeleyvision.org/), and extends the basic framework by providing layers for octree-specific features.
 
 ## Build
-For compilation instructions please refer to the [http://caffe.berkeleyvision.org/installation.html](official) or [https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide](unofficial) Caffe cmake build guidelines.
+For compilation instructions please refer to the [official](http://caffe.berkeleyvision.org/installation.html) or [unofficial](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide) cmake build guidelines for Caffe.
+
+## Data
+Octrees are stored as text-based serialized std::map containers. The provided utility (tools/ogn_converter) can be used to convert [binvox](http://minecraft.gamepedia.com/Programs_and_editors/Binvox) voxel grids into octrees. Three of the datasets used in the paper (ShapeNet-cars, FAUST and BlendSwap) can be downloaded from [here](http://lmb.informatik.uni-freiburg.de/data/ogn/data.zip). For ShapeNet-all, we used the [voxelizations](ftp://cs.stanford.edu/cs/cvgl/ShapeNetVox32.tgz) and the [renderings](ftp://cs.stanford.edu/cs/cvgl/ShapeNetRendering.tgz) provided by Choy et al. for their [3D-R<sup>2</sup>N<sup>2</sup>](https://github.com/chrischoy/3D-R2N2) framework.
 
 ## Usage
-You can download the datasets and example models from [](here). Run one of the scripts (train_known.sh, train_pred.sh or test.sh) from the corresponding experiment folder. You should have the caffe executable in your $PATH.
+Example models can be downloaded from [here](http://lmb.informatik.uni-freiburg.de/data/ogn/examples.zip). Run one of the scripts (train_known.sh, train_pred.sh or test.sh) from the corresponding experiment folder. You should have the caffe executable in your $PATH.
 
 ## Visualization
-We provide a python script for visualizing the .ot files in Blender. To use it, run
+There is a python script for visualizing .ot files in Blender. To use it, run
 	
 	$ blender -P $CAFFE_ROOT/python/rendering/render_model.py your_model.ot
 
 ## License and Citation
 All code is provided for research purposes only and without any warranty. Any commercial use requires our consent. When using the code in your research work, please cite the following paper:
-
+```
  @article{ogn2017,
   author    = {Maxim Tatarchenko and Alexey Dosovitskiy and Thomas Brox},
   title     = {Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs},
@@ -23,3 +26,5 @@ All code is provided for research purposes only and without any warranty. Any co
   volume    = {abs/1703.09438},
   year      = {2017}
   }
+ 
+```
