@@ -1,5 +1,7 @@
 # OGN
 
+![alt tag](https://github.com/mtatarchenko/ogn/blob/master/thumbnail.png)
+
 Source code accompanying the paper ["Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs"](https://lmb.informatik.uni-freiburg.de/people/tatarchm/ogn/) by M. Tatarchenko, A. Dosovitskiy and T. Brox. The implementation is based on [Caffe](http://caffe.berkeleyvision.org/), and extends the basic framework by providing layers for octree-specific features.
 
 ## Build
