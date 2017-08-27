@@ -23,12 +23,12 @@ There is a python script for visualizing .ot files in Blender. To use it, run
 ## License and Citation
 All code is provided for research purposes only and without any warranty. Any commercial use requires our consent. When using the code in your research work, please cite the following paper:
 ```
- @article{ogn2017,
-  author    = {Maxim Tatarchenko and Alexey Dosovitskiy and Thomas Brox},
-  title     = {Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs},
-  journal   = {CoRR},
-  volume    = {abs/1703.09438},
-  year      = {2017}
-  }
+ @InProceedings{ogn2017,
+  author       = "M. Tatarchenko and A. Dosovitskiy and T. Brox",
+  title        = "Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs",
+  booktitle    = "IEEE International Conference on Computer Vision (ICCV)",
+  year         = "2017",
+  url          = "http://lmb.informatik.uni-freiburg.de/Publications/2017/TDB17b"
+}
  
 ```
