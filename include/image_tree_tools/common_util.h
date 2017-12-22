@@ -18,6 +18,15 @@ inline std::vector<std::string> split(const std::string &s, char delim)
     return elems;
 }
 
+inline std::string get_file_extension(const std::string& filename) {
+    std::vector<std::string> components = split(filename, '.');
+
+    if ( components.size() == 0 ) {
+        return filename;
+    }
+    return components[components.size() - 1];
+}
+
 inline int next_pow_2(int val)
 {
     return pow(2, ceil(log(val) / log(2)));
