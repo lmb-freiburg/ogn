@@ -352,6 +352,9 @@ void OGNConvLayer<Dtype>::im2col_octree_cpu(int batch_ind, const vector<Blob<Dty
     }
 }
 
+#ifdef CPU_ONLY
+STUB_GPU(OGNConvLayer);
+#endif
 
 INSTANTIATE_CLASS(OGNConvLayer);
 REGISTER_LAYER_CLASS(OGNConv);
