@@ -61,8 +61,8 @@ int main(int argc, char* argv[]) {
         if ( output_ext == "ot" ) {
             octree.to_file(output_file);
         } else if ( output_ext == "binvox" ) {
-            //VoxelGrid vg = octree.to_voxel_grid();
-            //vg.write_binvox(output_string);
+            VoxelGrid vg = octree.to_voxel_grid();
+            vg.write_binvox(output_file);
         }
     }
     return 0;
