@@ -31,7 +31,8 @@ public:
     GeneralVoxelGrid(int depth, int height, int width)
     {
         _depth = depth; _height = height; _width = width;
-        _voxels = boost::shared_array<VALUE>(new VALUE(size()));
+        _voxels = boost::shared_array<VALUE>(new VALUE[_depth * _height * _width]);
+        memset(_voxels.get(), VALUE(0), _depth * _height * _width);
     }
 
     int size() {return _depth * _height * _width;}
@@ -55,6 +56,34 @@ public:
     : GeneralVoxelGrid(){}
   OccupancyVoxelGrid(int depth, int height, int width)
     : GeneralVoxelGrid(depth, height, width){}
+
+  int write_binvox(std::string filespec)
+  {
+      std::ofstream output(filespec.c_str(), std::ios::binary);
+      output << "#binvox 1\n";
+      output << "dim " << _depth << " " << _height << " " << _width << "\n";
+      output << "translate 0 0 0\n";
+      output << "scale 1\n";
+      output << "data\n";
+
+      byte count = 0;
+      byte prev_value = _voxels[0];
+      for(int i=1; i<size(); i++)
+      {
+          count++;
+          if(_voxels[i] != prev_value || count == 255)
+          {
+              output << prev_value;
+              output << count;
+
+              prev_value = _voxels[i];
+              count = 0;
+          }
+      }
+      
+      output.close();
+      return 0;
+  }
 
   int read_binvox(std::string filespec)
   {

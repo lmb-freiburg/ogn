@@ -176,13 +176,13 @@ public:
       }
   }
 
-  GeneralVoxelGrid<VALUE> to_voxel_grid()
+  OccupancyVoxelGrid to_voxel_grid()
   {
       int resolution = pow(2, _max_level);
-      GeneralVoxelGrid<VALUE> ret(resolution, resolution, resolution);
+      OccupancyVoxelGrid ret(resolution, resolution, resolution);
 
       int counter = 0;
-      for(typename std::map<KEY, VALUE>::iterator iter = _hash_table.begin(); iter != _hash_table.end(); ++iter)
+      for(typename std::tr1::unordered_map<KEY, VALUE>::iterator iter = _hash_table.begin(); iter != _hash_table.end(); ++iter)
       {
           int level = compute_level(iter->first);
 
@@ -202,13 +202,12 @@ public:
               {
                   for(int k=0; k < len; k++)
                   {
-                      if(iter->second) ret.set_element(i, j, k, iter->second);
+                      if(iter->second) ret.set_element(x + i, y + j, z + k, iter->second);
                   }
               }
           }
           counter++;
       }
-
       return ret;
   }
 
