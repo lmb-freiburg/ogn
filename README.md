@@ -7,7 +7,7 @@
 Source code accompanying the paper ["Octree Generating Networks: Efficient Convolutional Architectures for High-resolution 3D Outputs"](https://lmb.informatik.uni-freiburg.de/people/tatarchm/ogn/) by M. Tatarchenko, A. Dosovitskiy and T. Brox. The implementation is based on [Caffe](http://caffe.berkeleyvision.org/), and extends the basic framework by providing layers for octree-specific features.
 
 ## Important
-This is an outdated Caffe implementation that is no longer supported. A more up-to-date implementation of the underlying [algorithm](https://stanfordvl.github.io/MinkowskiEngine/demo/sparse_tensor_reconstruction.html) is provided as part of [Christofer Choy's](https://chrischoy.github.io/) [Minkowski Engine](https://github.com/StanfordVL/MinkowskiEngine).
+This is an outdated Caffe implementation that is no longer supported. A more up-to-date [implementation](https://stanfordvl.github.io/MinkowskiEngine/demo/sparse_tensor_reconstruction.html) of the underlying algorithm is provided as part of [Christofer Choy's](https://chrischoy.github.io/) [Minkowski Engine](https://github.com/StanfordVL/MinkowskiEngine).
 
 ## Build
 For compilation instructions please refer to the [official](http://caffe.berkeleyvision.org/installation.html) or [unofficial](https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide) CMake build guidelines for Caffe. Makefile build is not supported.
